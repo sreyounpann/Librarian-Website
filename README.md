@@ -138,8 +138,9 @@ Data is stored in localStorage to persist information between sessions.
 3. Make your changes.
 4. Open a pull request.
 
-# License
-This project is licensed under the [Sreyoun Pann] - see the [LICENSE.md] file for details.
+## License
+This project is licensed under the [Sreyoun Pann](https://github.com/sreyounpann) - see the [LICENSE.md](LICENSE.md) file for details.
+
 
 
 
