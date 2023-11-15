@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-ynnE7UVwoV6+Ym4vUqCRihITkzc4p9MQ13sU6O46Pm31zzQbyDx5p0LB8fHbhSYF5" crossorigin="anonymous"></script>
+    
+    <!--Bootstrap 5 icons CDN-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <title>Yeoow Library</title>
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="display: flex; align-items: center;">
+                <div style="border-radius: 50%; overflow: hidden; width: 70px; height: 70px;">
+                  <img src="./Image/yeowLibrary.jpg" width="70" height="70" alt="">
+                </div>
+                <span style="margin-left: 10px; margin-top: -0px;">Yeoow Library</span>
+              </a>
+              
+              
+          <h2>Book</h2>
+       
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" href="#Book" onclick=" showDashboard('book-section')">Book</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#Visitor" onclick="showDashboard('visitor-section') ">Visitor</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#Card" onclick="showDashboard('card-section')">Card</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#Static" onclick="showDashboard('static-section')">Static</a>
+              </li>
+            </ul>
+            
+            <form class="d-flex">
+                <input class="form-control me-2" id="searchTxt" type="search" placeholder="Search" aria-label="Search" />
+                <button class="btn-light btn-outline-primary" type="submit">
+                  Search
+                </button>
+              </form>
+              
+          </div>
+        </div>
+      </nav>
+
+        <!-- Book Section  -->
+        
+    <section  id="book-section" class="dashboard" style="display: block;">
+        <h1 class="display-4 text-center"> 
+            <div style="border-radius: 10px !important; overflow: hidden;">
+                <img src="./Image/Designer1.png" alt="" width="200" height="150">
+              </div>
+              
+              
+            <i class="text-primary"></i><b>My Library <span class="text-primary">Book </span>List</b></h1>
+            <br><br>
+            <div class="row">
+                <div class="col-12">
+                  
+                    <button class="btn btn-primary newUser" data-bs-toggle="modal" data-bs-target="#userForm">New Book <i class="bi bi-book"></i></button>
+                </div>
+            </div>
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-striped table-hover mt-3 text-center table-bordered">
+
+                    <thead>
+                        <tr>
+                            <th>B.No</th>
+                            <th>Picture</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Publish Date</th>
+                            <th>Name of Publisher</th>
+                            <th>QTY Page</th>
+                            <th>QTY Copy</th>
+                            <th>Genre</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="data"></tbody>
+
+                </table>
+            </div>
+        </div>
+ </section>
+
+ <!-- Visitor Section  -->
+
+ <section class="dashboard" id="visitor-section" style="display: none;">
+        <h1 class="display-4 text-center">
+            <div style="border-radius: 10px !important; overflow: hidden;">
+                <img src="./Image/Designer1.png" alt="" width="200" height="150">
+              </div>
+              
+              
+            <i class="text-primary"></i><b>My Library <span class="text-primary">Visitor </span>List</b></h1>
+            <br><br>
+            <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-primary newVisitor" data-bs-toggle="modal" data-bs-target="#visitorForm">New Visitor <i class="bi bi-people "></i></button>
+                </div>
+            </div>
+            <div class="row" >
+                <div class="col-12">
+                    <table class="table table-striped table-hover mt-3 text-center table-bordered">
+
+                        <thead>
+                            <tr>
+                                <th>V.No</th>
+                                <th>Picture</th>
+                                <th>Visitor Fullname</th>
+                                <th>Visitor Phone Number</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+    
+                        <tbody id="dataVisitor"></tbody>
+    
+                    </table>
+                
+
+                </div>
+
+            </div>
+        
+
+    </section>
+
+   <!-- Card Section -->
+<section class="dashboard" id="card-section" style="display: none;">
+    <h1 class="display-4 text-center">
+        <div style="border-radius: 10px !important; overflow: hidden;">
+            <img src="./Image/Designer1.png" alt="" width="200" height="150">
+        </div>
+        <i class="text-primary"></i><b>My Library <span class="text-primary">Card </span>List</b>
+    </h1>
+    <br><br>
+    <div class="row">
+        <div class="col-12">
+            <button class="btn btn-primary newCard" data-bs-toggle="modal" data-bs-target="#cardForm"
+            >New Card <i class="bi bi-pen"></i></button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped table-hover mt-3 text-center table-bordered">
+                <thead>
+                    <tr>
+                        <th>C.No</th>
+                        <th>Visitor Name</th>
+                        <th>Book Title</th>
+                        <th>Borrow Date</th>
+                        <th>Return Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="dataCard"></tbody>
+
+            </table>
+        </div>
+    </div>
+</section>
+
+
+<!-- Static Section -->
+<section class="dashboard" id="static-section" style="display: none;">
+    <h1 class="display-4 text-center">
+        <div style="border-radius: 10px !important; overflow: hidden;">
+            <img src="./Image/Designer1.png" alt="" width="200" height="150">
+        </div>
+        <i class="text-primary"></i><b>My Library <span class="text-primary">Static </span>Information</b>
+    </h1>
+    <br><br>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="text-primary">Most Popular Books</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Book Title</th>
+                        <th>Borrow Count</th>
+                    </tr>
+                </thead>
+                <tbody id="popularBooksList">
+                    <!-- Most popular books will be displayed here -->
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <h3 class="text-primary">Most Active Visitors</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Visitor Fullname</th>
+                        <th>Borrow Count</th>
+                    </tr>
+                </thead>
+                <tbody id="activeVisitorsList">
+                    <!-- Most active visitors will be displayed here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+    <!--Modal Form Book-->
+    <div class="modal fade" id="userForm">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Fill the Form</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <form action="#" id="myForm">
+
+                        <div class="card imgholder">
+                            <label for="imgInput" class="upload">
+                                <input type="file" name="" id="imgInput">
+                                <i class="bi bi-plus-circle-dotted"></i>
+                            </label>
+                            <img src="./image/bookicon.png" alt="" width="200" height="200" class="img">
+                        </div>
+
+                        <div class="inputField">
+                            <div>
+                                <label for="bookid"><b>Book ID</b></label>
+                                <input type="text" id="bookid" class="form-control mt-2" placeholder="Enter book ID">
+                            </div>
+                            <div>
+                                <label for="title"><b>Title</b></label>
+                                <input type="text" id="title" class="form-control mt-2" placeholder="Enter book name">
+                            </div>
+                            <div>
+                                <label for="author"><b>Author</b></label>
+                                <input type="text" id="author" class="form-control mt-2" placeholder="Enter author name">
+                            </div>
+                            <div>
+                                <label for="year-publish"><b>Date of Publish</b></label>
+                                <input type="date" id="year-publish" class="form-control mt-2" placeholder="Select year of publish">
+                            </div>
+                            <div>
+                                <label for="publish-name"><b>Publisher Name</b></label>
+                                <input type="text" id="publish-name" class="form-control mt-2" placeholder="Enter publish name">
+                            </div>
+                            <div>
+                                <label for="number-page"><b>Number of Page</b></label>
+                                <input type="text" id="number-page" class="form-control mt-2" placeholder="Enter number of page">
+                            </div>
+                            <div>
+                                <label for="number-copy"><b>Number of Copy In Library</b></label>
+                                <input type="text" id="number-copy" class="form-control mt-2" placeholder="Enter number of copy">
+                            </div>
+                            <div>
+                                <label for="genre"><b>Genre</b></label>
+                                <select id="genre" class="form-select mt-2">
+                                    <option value="Adventure">Adventure</option>
+                                    <option value="Mystery">Mystery</option>
+                                    <option value="Science Fiction">Science Fiction</option>
+                                    <option value="Romance">Romance</option>
+                                </select>
+                            </div>
+                            
+                        </div>
+
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" form="myForm" class="btn btn-primary submit" >Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Modal Form Visitor-->
+    <div class="modal fade" id="visitorForm">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Fill Visitor Form</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form action="#" id="myForm2">
+                        <div class="card imgholder">
+
+                            <label for="imgInput2" class="upload">
+                                <input type="file" name="" id="imgInput2">
+                                <i class="bi bi-plus-circle-dotted"></i>
+                            </label>
+                            <img src="./Image/Profile Icon.webp" alt="" width="200" height="200" class="img2">
+                        </div>
+
+                        <div id="inputField">
+                            <div>
+                                <label for="visitorId"><b>Visitor ID</b></label>
+                                <input type="text" id="visitorId" class="form-control mt-2" placeholder="Enter visitor ID">
+
+                            </div>
+                            <div>
+                                <label for="visitorFullname"><b>Visitor Fullname</b></label>
+                                <input type="text" id="visitorFullname" class="form-control mt-2" placeholder="Enter visitor fullname">
+                            </div>
+                            <div>
+                                <label for="visitorNum"><b>Visitor Phone number</b></label>
+                                <input type="text" id="visitorNum" class="form-control mt-2" placeholder="Enter visitor Number">
+                            </div>
+                        </div>
+                    </form>
+                  
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" form="myForm2" class="btn btn-primary submit">Submit</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal Form Card -->
+<div class="modal fade" id="cardForm">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Fill Card Form</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="#" id="myForm4">
+                    <div class="form-group">
+                        <label for="cardId"><b>Card ID</b></label>
+                        <input type="text" id="cardId" class="form-control mt-2" placeholder="Enter card ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="visitorIdSelect"><b>Visitor Name</b></label>
+                        <select id="visitorIdSelect" name="visitorIdSelect" class="form-control mt-2" placeholder="Select Visitor Name">
+                            <!-- Options will be generated dynamically using JavaScript -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookIdSelect"><b>Book Title</b></label>
+                        <select id="bookIdSelect" class="form-control mt-2" placeholder = "Select Book Name" >
+                            <!-- Options will be generated dynamically using JavaScript -->
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" id="submit_Card" form="myForm4" class="btn btn-primary submit">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    
+
+    <!--Read Data Modal from Book-->
+    <div class="modal fade" id="readData">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">View Book</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <form action="#" id="myForm1">
+
+                        <div class="card imgholder">
+                            <img src="./image/bookicon.png" alt="" width="200" height="200" id="showImg">
+                        </div>
+
+                        <div class="inputField">
+                            <div>
+                                <label for="showtitle">title:</label>
+                                <input type="text" name="" id="showtitle" disabled>
+                            </div>
+                            <div>
+                                <label for="showAuthor">Author:</label>
+                                <input type="text" name="" id="showAuthor" disabled>
+                            </div>
+                            <div>
+                                <label for="showDate">PublishDate:</label>
+                                <input type="text" name="" id="showDate" disabled>
+                            </div>
+                            <div>
+                                <label for="showPublisher">Publisher:</label>
+                                <input type="text" name="" id="showPublisher" disabled>
+                            </div>
+                            <div>
+                                <label for="showPage">Number of Page:</label>
+                                <input type="text" name="" id="showPage" disabled>
+                            </div>
+                            <div>
+                                <label for="showCopy">Number of Copy:</label>
+                                <input type="text" name="" id="showCopy" disabled >
+                            </div>
+                            <div>
+                                <label for="showGenre">Genre:</label>
+                                <input type="text" name="" id="showGenre" disabled >
+                            </div>
+                            <div>
+                            </div>
+                        </div>
+                        
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!--Read Data Modal form Visitor-->
+    <div class="modal fade" id="readVisitorData">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Visitor Profile </h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <form action="#" id="myForm3">
+
+                        <div class="card imgholder">
+                            <img src="./Image/Profile Icon.webp" alt="" width="200" height="200" id="showImgVisitor">
+                        </div>
+
+                        <div class="inputField">
+                           
+                            <div>
+                                <label for="visitorFullname">Visitor Fullname:</label>
+                                <input type="text" name="" id="showVisitorFullname" disabled>
+                            </div>
+                            <div>
+                                <label for="visitorNum">Visitor Phone Number:</label>
+                                <input type="text" name="" id="showVisitorNumber" disabled>
+                            </div>
+                           
+                          
+                            <div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Read Data Modal form Card-->
+    <div class="modal fade" id="readCardData">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Card Profile </h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form action="#" id="myForm5"></form>
+                    
+                    <div class="inputField">
+                        <div>
+                            <label for="cardId">Card ID:</label>
+                            <input type="text" name="" id="showCardId" disabled>
+                        </div>
+
+                        <div>
+                            <label for="visitorIdSelect">Visitor Name:</label>
+                            <input type="text" name="" id="showVisitorId" disabled>
+                        </div>
+
+                        <div>
+                            <label for="bookIdSelect">Book Title:</label>
+                            <input type="text" name="" id="showBookId" disabled>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script src="app.js"></script>
+    <script src="visitorApp.js"></script>
+    <script src="cardApp.js"></script>
+    <script src="staticApp.js"></script>
+
+    
+    
+
+    <script>
+       // Function to show/hide dashboard sections
+function showDashboard(sectionId) {
+    const sections = document.querySelectorAll(".dashboard");
+    sections.forEach((section) => {
+        section.classList.remove("active-section");
+    });
+
+    const selectedSection = document.getElementById(sectionId);
+    selectedSection.classList.add("active-section");
+    activeSection = sectionId;
+}
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var myModal = new bootstrap.Modal(document.getElementById('userForm'));
+            var visitorModal = new bootstrap.Modal(document.getElementById('visitorForm'));
+            var cardModal = new bootstrap.Modal(document.getElementById('cardForm'));
+            var readModal = new bootstrap.Modal(document.getElementById('static-section'));
+        });
+    </script>
+
+    <script>
+        
+      
+let activeSection = "book-section";
+
+
+const searchInput = document.getElementById("searchTxt");
+const bookSection = document.getElementById("book-section");
+const visitorSection = document.getElementById("visitor-section");
+const cardSection = document.getElementById("card-section");
+const staticSection = document.getElementById("static-section");
+
+
+
+searchInput.addEventListener("input", () => {
+    const searchTerm = searchInput.value.toLowerCase();
+
+    if (activeSection === "book-section") {
+        showInfo(searchTerm); // Perform book search
+    } else if (activeSection === "visitor-section") {
+        showInfo2(searchTerm); // Perform visitor search
+    } else if (activeSection === "card-section") {
+        cardShowInfo(searchTerm); // Perform card search
+    } else if (activeSection === "static-section") {
+        staticShowBooks(searchTerm); // Perform static book search
+        staticShowVisitors(searchTerm); // Perform static visitor search
+    }
+});
+
+
+
+function showDashboard(selectionId){
+    const sections = document.querySelectorAll(".dashboard");
+    sections.forEach((section) => {
+        section.style.display = "none";
+    });
+    
+    const selectedSection = document.getElementById(selectionId);
+    selectedSection.style.display = "block";
+    activeSection = selectionId;
+    
+}
+
+document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const searchTerm = document.getElementById("searchTxt").value.toLowerCase();
+
+
+    //Call the appropriate search function based on the active section
+    if (activeSection === "book-section") {
+        searchBooks(searchTerm);
+    } else if (activeSection === "visitor-section") {
+        searchVisitors(searchTerm);
+    } else if (activeSection === "card-section") {
+        searchCards(searchTerm);
+    }
+    else if (activeSection === "static-section") {
+        staticShowBooks(searchTerm); // Call the function to display popular books
+        staticShowVisitors(searchTerm); // Call the function to display popular visitors
+    }
+
+});
+  
+document.getElementById("searchBtn").addEventListener("click", function () {
+    const searchTerm = document.getElementById("searchTxt").value.toLowerCase();
+    if (activeSection === "book-section") {
+        searchBooks(searchTerm);
+    } else if (activeSection === "visitor-section") {
+        searchVisitors(searchTerm);
+    } else if (activeSection === "card-section") {
+        searchCards(searchTerm);
+    } else if (activeSection === "static-section") {
+        staticShowBooks(searchTerm); // Call the function to display popular books
+        staticShowVisitors(searchTerm); // Call the function to display popular visitors
+    }
+});
+
+
+
+
+
+
+
+    </script>
+  </body>
+</html>
