@@ -139,7 +139,7 @@ Data is stored in localStorage to persist information between sessions.
 4. Open a pull request.
 
 # License
-This project is licensed under the [YeowPann] - see the LICENSE.md file for details.
+This project is licensed under the [Sreyoun Pann] - see the [LICENSE.md] file for details.
 
 
 
