@@ -9,6 +9,7 @@ A web-based Library Management System to help librarians keep track of books, vi
 - [Data Validation](#data-validation)
 - [Entities](#entities)
 - [Local Storage](#local-storage)
+- [Live Demo](#live-demo)
 - [Screenshots](#screenshots)
 - [Contributing](#contributing)
 - [License](#license)
@@ -90,10 +91,13 @@ Follow the on-screen navigation to access different sections (Books, Visitors, C
 | **Borrow Date** | Date when the book was borrowed.           |
 | **Return Date** | Date when the book is expected to be returned.|
 
-## LocalStorage
+## Local-Storage
 Data is stored in localStorage to persist information between sessions.
 
-# Screenshot
+## Live-Demo
+https://main--comfy-rugelach-04af5c.netlify.app/
+
+# Screenshots
 
   Include screenshots of the interface for Visitors and Cards, as shown in the provided variant.
 
